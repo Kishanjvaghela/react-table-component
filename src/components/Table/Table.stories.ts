@@ -30,3 +30,19 @@ export const Sample: Story = {
     data: data,
   },
 };
+
+export const RadioButtonSample: Story = {
+  args: {
+    columns: columns,
+    data: data,
+    selection: 'single'
+  },
+};
+
+export const CheckBoxSample: Story = {
+  args: {
+    columns: columns,
+    data: data,
+    selection: 'multi'
+  },
+};

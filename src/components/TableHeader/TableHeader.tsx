@@ -3,10 +3,15 @@ import "./TableHeader.css";
 
 interface TableHeaderProps {
   columns: string[];
-  onSort: (column: string, sortDirection: string) => void; // Callback to handle sorting
+  onSort: (column: string, sortDirection: string) => void;
+  selection: "single" | "multi";
 }
 
-const TableHeader: React.FC<TableHeaderProps> = ({ columns, onSort }) => {
+const TableHeader: React.FC<TableHeaderProps> = ({
+  columns,
+  selection,
+  onSort,
+}) => {
   const [sortedColumn, setSortedColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
@@ -20,9 +25,16 @@ const TableHeader: React.FC<TableHeaderProps> = ({ columns, onSort }) => {
     onSort(column, sortDirection);
   };
 
+  const shouldAddExtraHeader = () => {
+    console.log('selection', selection);
+    
+    return selection && (selection == "multi" || selection == "single");
+  };
+
   return (
     <thead>
       <tr className="table-header">
+        {shouldAddExtraHeader() && <th />}
         {columns.map((column, index) => (
           <th
             key={index}
