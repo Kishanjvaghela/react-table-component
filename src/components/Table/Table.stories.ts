@@ -31,6 +31,14 @@ export const Sample: Story = {
   },
 };
 
+export const SortingSample: Story = {
+  args: {
+    columns: columns,
+    data: data,
+    enableSorting: true
+  },
+};
+
 export const RadioButtonSample: Story = {
   args: {
     columns: columns,

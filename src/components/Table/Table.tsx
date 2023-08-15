@@ -12,15 +12,21 @@ interface TableProps {
   data: DataRow[];
   columns: string[];
   selection: "single" | "multi";
+  enableSorting: boolean;
 }
 
-const Table: React.FC<TableProps> = ({ data, columns, selection }) => {
+const Table: React.FC<TableProps> = ({
+  data,
+  columns,
+  selection,
+  enableSorting,
+}) => {
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const [sortedData, setSortedData] = useState<DataRow[]>(data);
 
   const handleRowSelect = (rowId: number) => {
     // Handle row selection for radio button
-    setSelectedRows([rowId]);
+    // setSelectedRows([rowId]);
   };
 
   const handleRadioSelect = (rowId: number) => {
@@ -38,6 +44,9 @@ const Table: React.FC<TableProps> = ({ data, columns, selection }) => {
   };
 
   const handleSort = (column: string, sortDirection: string) => {
+    if (!enableSorting) {
+      return;
+    }
     const sorted = [...sortedData].sort((a, b) => {
       const aValue = a.columns[columns.indexOf(column)];
       const bValue = b.columns[columns.indexOf(column)];
@@ -57,6 +66,7 @@ const Table: React.FC<TableProps> = ({ data, columns, selection }) => {
         <TableHeader
           columns={columns}
           selection={selection}
+          enableSorting={enableSorting}
           onSort={handleSort}
         />
         <tbody>

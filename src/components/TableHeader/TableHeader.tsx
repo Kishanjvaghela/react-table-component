@@ -5,30 +5,49 @@ interface TableHeaderProps {
   columns: string[];
   onSort: (column: string, sortDirection: string) => void;
   selection: "single" | "multi";
+  enableSorting: boolean;
 }
 
 const TableHeader: React.FC<TableHeaderProps> = ({
   columns,
   selection,
+  enableSorting,
   onSort,
 }) => {
   const [sortedColumn, setSortedColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
   const handleSort = (column: string) => {
-    if (sortedColumn === column) {
-      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-    } else {
-      setSortedColumn(column);
-      setSortDirection("asc");
+    if (!enableSorting) {
+      return;
     }
-    onSort(column, sortDirection);
+    const newSortDirection = sortDirection === "asc" ? "desc" : "asc";
+    setSortedColumn(column);
+    setSortDirection(newSortDirection);
+    onSort(column, newSortDirection);
   };
 
   const shouldAddExtraHeader = () => {
-    console.log('selection', selection);
-    
     return selection && (selection == "multi" || selection == "single");
+  };
+
+  const renderSortingIcon = (column: string) => {
+    return (
+      <div className="icon">
+        {sortedColumn === column ? (
+          <button
+            className={`sort-button sort-button-bg ${sortDirection}`}
+            onClick={() => handleSort(column)}
+          >
+            <span className="sort-icon">&#8595;</span>
+          </button>
+        ) : (
+          <button className={`sort-button`} onClick={() => handleSort(column)}>
+            <span className="sort-icon">&#8691;</span>
+          </button>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -43,23 +62,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({
           >
             <div className="text-and-icon-container">
               <span className="text">{column}</span>
-              <div className="icon">
-                {sortedColumn === column ? (
-                  <button
-                    className={`sort-button sort-button-bg ${sortDirection}`}
-                    onClick={() => handleSort(column)}
-                  >
-                    <span className="sort-icon">&#8595;</span>
-                  </button>
-                ) : (
-                  <button
-                    className={`sort-button`}
-                    onClick={() => handleSort(column)}
-                  >
-                    <span className="sort-icon">&#8691;</span>
-                  </button>
-                )}
-              </div>
+              {enableSorting && renderSortingIcon(column)}
             </div>
           </th>
         ))}
