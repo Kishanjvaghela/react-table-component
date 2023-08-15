@@ -41,3 +41,47 @@
   /* other formats include: 'woff2', 'truetype, 'opentype',
                               'embedded-opentype', and 'svg' */
 }
+
+/**
+Header Font: Avenir Heavy
+Line 1.75
+Letter spacing 0
+Font Size: XL & LG = 20 / MD = 18 / SM & XS = 16
+
+col-* - 0 (xs)
+col-sm-* - 576px
+col-md-* - 768px
+col-lg-* - 992px
+col-xl-* - 1200px
+*/
+
+/**
+Cell Font: Avenir Book
+Line 1.75
+Letter spacing 0.1
+Font Size: XL & LG = 20 / MD = 18 / SM & XS = 16
+*/
+
+/* SM & XS = 16 */
+@media only screen and (max-width: 576px) {
+  /* CSS apply on width between 0 and 576px */
+  .table tr {
+    font-size: 16px;
+  }
+}
+
+/* MD = 18 */
+@media only screen and (max-width: 768px) and (min-width: 576px) {
+  /* CSS apply on width between 576px and 768px */
+  .table tr {
+    font-size: 18px;
+  }
+}
+
+/* XL & LG = 20 */
+@media only screen and (min-width: 768px) {
+  /* CSS apply on width above 768px */
+  .table tr {
+    font-size: 20px;
+  }
+}

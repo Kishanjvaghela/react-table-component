@@ -1,8 +1,7 @@
 .table-header {
   color: #000;
-  /* Desktop/04 Header */
   font-family: Avenir LT Std;
-  font-size: 24px;
   font-style: normal;
   font-weight: 700;
+  letter-spacing: 0px;
 }
