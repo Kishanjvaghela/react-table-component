@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 const columns = ["Operator", "Headset Display", "3G Availability"];
 const data = [
   { id: 1, columns: ["*Celcom Axiata (LTE)", "CELCOM / My Celcom / 502 19", "Yes"] },
-  { id: 2, columns: ["*DiGi Telecom (LTE)", "DiGi 1800 / DiGi /  MYMY18", "Yes"] },
+  { id: 2, columns: ["*DiGi Telecom (LTE)", "DiGi 1800 / DiGi /  MYMY18", "No"] },
   { id: 3, columns: ["*Maxis (LTE)", "U Mobile / MYS 18 / MY 18", "Yes"] },
   { id: 4, columns: ["U Mobile (LTE)", "U Mobile / MYS 18 / MY 18", "Yes"] },
 ];
