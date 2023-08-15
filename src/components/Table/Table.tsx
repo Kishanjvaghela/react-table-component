@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import TableHeader from './TableHeader';
-import TableRow from './TableRow';
+import TableHeader from '../TableHeader';
+import TableRow from '../TableRow';
 
 interface DataRow {
   id: number;

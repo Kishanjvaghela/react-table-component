@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Table from "./Table";
+import TableHeader from "./TableHeader";
 
 const meta: Meta = {
-  title: "Example/Table",
-  component: Table,
+  title: "Example/TableHeader",
+  component: TableHeader,
   parameters: {
     // layout: 'centered',
   },
@@ -12,19 +12,13 @@ const meta: Meta = {
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
-} satisfies Meta<typeof Table>;
+} satisfies Meta<typeof TableHeader>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const columns = ["Name", "Age", "Country"];
-const data = [
-  { id: 1, columns: ["John", "30", "USA"] },
-  { id: 2, columns: ["Alice", "25", "Canada"] },
-];
 export const Sample: Story = {
   args: {
-    columns: columns,
-    data: data,
+    columns: ["Name", "Age", "Country"],
   },
 };
