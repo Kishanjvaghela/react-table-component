@@ -1,4 +1,5 @@
 import React from 'react';
+import './TableHeader.css';
 
 interface TableHeaderProps {
   columns: string[];
@@ -7,7 +8,7 @@ interface TableHeaderProps {
 const TableHeader: React.FC<TableHeaderProps> = ({ columns }) => {
   return (
     <thead>
-      <tr>
+      <tr className="table-header">
         {columns.map((column, index) => (
           <th key={index}>{column}</th>
         ))}

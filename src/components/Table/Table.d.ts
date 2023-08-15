@@ -10,6 +10,7 @@ declare module 'react-table-component/Table' {
     interface TableProps {
       data: DataRow[];
       columns: string[];
+      isLastRow: boolean;
     }
   
     const Table: React.FC<TableProps>;

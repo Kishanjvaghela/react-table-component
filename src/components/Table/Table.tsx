@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TableHeader from '../TableHeader';
 import TableRow from '../TableRow';
+import './Table.css';
 
 interface DataRow {
   id: number;
@@ -25,10 +26,11 @@ const Table: React.FC<TableProps> = ({ data, columns }) => {
       <table className="table">
         <TableHeader columns={columns} />
         <tbody>
-          {data.map((row) => (
+          {data.map((row, index) => (
             <TableRow
               key={row.id}
               row={row}
+              isLastRow={index === data.length - 1}
               isSelected={selectedRows.includes(row.id)}
               onSelect={() => handleRowSelect(row.id)}
             />
