@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./TableHeader.css";
+import IconButton from "../IconButton";
+import { DownSvgComponent, UpDownSvgComponent } from "../../assets/svg";
 
 interface TableHeaderProps {
   columns: string[];
@@ -35,16 +37,16 @@ const TableHeader: React.FC<TableHeaderProps> = ({
     return (
       <div className="icon">
         {sortedColumn === column ? (
-          <button
-            className={`sort-button sort-button-bg ${sortDirection}`}
+          <IconButton
+            className={`sort-button-bg ${sortDirection}`}
             onClick={() => handleSort(column)}
           >
-            <span className="sort-icon">&#8595;</span>
-          </button>
+            <DownSvgComponent />
+          </IconButton>
         ) : (
-          <button className={`sort-button`} onClick={() => handleSort(column)}>
-            <span className="sort-icon">&#8691;</span>
-          </button>
+          <IconButton onClick={() => handleSort(column)}>
+            <UpDownSvgComponent />
+          </IconButton>
         )}
       </div>
     );

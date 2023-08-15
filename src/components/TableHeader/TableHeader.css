@@ -11,45 +11,6 @@
   cursor: pointer;
 }
 
-
-.sort-button {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border: none;
-  padding: 0;
-  border-radius: 20px;
-  transition: background-color 0.3s, color 0.3s;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  justify-content: center;
-  background-color: #f7f7f7;
-  /* opacity: 0.5; */
-}
-
-.sort-button:hover {
-  background-color: rgb(222, 218, 250);
-}
-
-.sort-button-bg {
-  background-color: rgb(222, 218, 250, 0.5);
-}
-
-
-.sort-icon {
-  transition: transform 0.3s;
-  color: #222;
-}
-
-.sort-button.asc .sort-icon {
-  transform: rotate(180deg);
-}
-
-.sort-button.desc .sort-icon {
-  transform: rotate(0deg);
-}
-
 .text-and-icon-container {
   display: flex;
   align-items: center;
@@ -61,4 +22,8 @@
 
 .icon {
 
+}
+
+.sort-button-bg {
+  background-color: rgb(222, 218, 250, 0.5);
 }
