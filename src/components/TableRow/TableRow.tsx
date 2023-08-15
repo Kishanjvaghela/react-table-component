@@ -1,5 +1,7 @@
 import React from "react";
 import "./TableRow.css";
+import RadioButton from "../RadioButton";
+import CheckBox from "../CheckBox";
 
 interface DataRow {
   id: number;
@@ -33,14 +35,12 @@ const TableRow: React.FC<TableRowProps> = ({
       {selection && (
         <td>
           {selection == "single" ? (
-            <input
-              type="radio"
+            <RadioButton
               checked={isSelected}
               onChange={() => onRadioSelect(row.id)}
             />
           ) : (
-            <input
-              type="checkbox"
+            <CheckBox
               checked={isSelected}
               onChange={() => onCheckboxSelect(row.id)}
             />
